@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Music</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1> ကျွန်တော့် သီချင်းများ</h1>
+
+<div class="song">
+  <h3> UNCOVER</h3>
+  <audio controls class="music">
+    <source src="songs/song1.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<div class="song">
+  <h3> Faded Rap</h3>
+  <audio controls class="music">
+    <source src="songs/song2.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<div class="song">
+  <h3> Ice On Baby</h3>
+  <audio controls class="music">
+    <source src="songs/song3.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<div class="song">
+  <h3> MOOD</h3>
+  <audio controls class="music">
+    <source src="songs/song4.mp3" type="audio/mpeg">
+  </audio>
+</div>
+<script>
+  const audios = document.querySelectorAll(".music");
+
+  audios.forEach(audio => {
+    audio.addEventListener("play", () => {
+      audios.forEach(otherAudio => {
+        if (otherAudio !== audio) {
+          otherAudio.pause();
+        }
+      });
+    });
+  });
+</script>
